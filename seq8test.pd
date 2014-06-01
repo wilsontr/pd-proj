@@ -1,0 +1,5 @@
+#N canvas 356 296 450 300 10;
+#X obj 83 102 randomseq8;
+#X obj 85 43 pulse 120;
+#X obj 84 193 * 128;
+#X connect 1 0 0 0;
