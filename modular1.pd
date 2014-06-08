@@ -1,9 +1,9 @@
-#N canvas 163 42 1094 656 10;
+#N canvas 45 42 1094 656 10;
 #X obj 203 87 mini16seq;
 #X obj 448 590 output~;
 #X obj 445 552 hip~ 1;
 #X obj 241 364 quantize;
-#X floatatom 276 320 5 0 127 0 - - -;
+#X floatatom 270 323 5 0 127 0 - - -;
 #X obj 218 314 t b f;
 #N canvas 143 298 450 300 envelope 0;
 #X obj 33 161 adenv~;
@@ -14,7 +14,7 @@
 #X obj 105 150 knob 32 32 0.01 1 1 0 empty empty cv_scale 0 -8 1 10
 -262144 -1 -1 0 1;
 #X obj 151 150 knob 32 32 0.01 1 1 0 empty empty cv_scale 0 -8 1 10
--262144 -1 -1 1100 1;
+-262144 -1 -1 2500 1;
 #X obj 143 61 * 5000;
 #X obj 202 61 * 5000;
 #X obj 203 240 *;
@@ -25,9 +25,9 @@
 #X obj 256 117 ii;
 #X msg 254 161 1;
 #X obj 153 117 nbx 4 14 0.1 10000 1 0 empty empty decay 0 -8 1 10 -262144
--1 -1 39.9466 256;
+-1 -1 609.964 256;
 #X obj 106 117 nbx 4 14 0.1 10000 1 0 empty empty attack 0 -8 1 10
--262144 -1 -1 14.7221 256;
+-262144 -1 -1 5 256;
 #X connect 0 0 12 0;
 #X connect 2 0 0 0;
 #X connect 3 0 7 0;
@@ -52,9 +52,9 @@
 #X obj 245 390 mtof;
 #X obj 522 24 frv;
 #X obj 680 376 *~ 0.8;
-#X obj 604 345 crossfade~;
+#X obj 543 352 crossfade~;
 #X obj 615 325 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 10000 1;
+-1 -1 12700 1;
 #N canvas 280 43 770 633 verb 0;
 #X obj 42 216 inlet~;
 #X obj 120 212 inlet~;
@@ -62,23 +62,23 @@
 #X obj 195 535 outlet~;
 #X obj 178 434 zrev1~ 10 10 10;
 #X obj 484 269 hsl 128 15 0 100 0 1 empty empty reverb_time -2 -8 0
-10 -262144 -1 -1 11600 1;
+10 -262144 -1 -1 11900 1;
 #X floatatom 497 340 5 0 0 0 - - -;
 #X obj 534 385 hsl 128 15 -1 1 0 1 empty empty mix -2 -8 0 10 -262144
--1 -1 5200 1;
+-1 -1 6600 1;
 #X floatatom 526 421 5 0 0 0 - - -;
 #X obj 457 225 hsl 128 15 0 200 0 1 empty empty room_size -2 -8 0 10
--262144 -1 -1 9700 1;
+-262144 -1 -1 1900 1;
 #X floatatom 418 267 5 0 0 0 - - -;
 #X obj 391 181 hsl 128 15 200 20000 1 1 empty empty lpf_cutoff -2 -8
-0 10 -262144 -1 -1 9100 1;
+0 10 -262144 -1 -1 6800 1;
 #X floatatom 380 229 5 0 0 0 - - -;
 #X obj 365 135 hsl 128 15 -99 18 0 1 empty empty recycle -2 -8 0 10
--262144 -1 -1 10500 1;
+-262144 -1 -1 10000 1;
 #X obj 306 95 hsl 128 15 -99 18 0 1 empty empty 2nd_reflection_(db)
--2 -8 0 10 -262144 -1 -1 8200 1;
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 228 59 hsl 128 15 -99 18 0 1 empty empty 1st_reflection_(db)
--2 -8 0 10 -262144 -1 -1 9700 1;
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X connect 0 0 4 0;
 #X connect 1 0 4 1;
 #X connect 4 0 2 0;
@@ -99,18 +99,18 @@
 #X restore 467 532 pd verb;
 #X obj 504 552 hip~ 1;
 #N canvas 74 105 840 601 waveguide 0;
-#N canvas 89 59 858 658 bbd 0;
+#N canvas 472 64 858 658 bbd 0;
 #X obj 441 353 *~ 0;
 #X obj 533 204 vsl 15 128 0.01 1 1 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 375 210 line~;
-#X floatatom 514 438 5 0 0 0 - - -;
+#X floatatom 518 165 7 0 0 0 - - -;
 #X obj 125 37 inlet~;
 #X obj 242 748 outlet~;
 #X obj 377 148 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 32 256;
-#X floatatom 470 431 5 0 0 0 - - -;
-#X obj 431 544 s~ \$0-fdbk;
+-262144 -1 -1 2 256;
+#X floatatom 462 423 5 0 0 0 - - -;
+#X obj 423 614 s~ \$0-fdbk;
 #X obj 186 64 r~ \$0-fdbk;
 #X obj 496 357 expr (1 - $f1);
 #X obj 376 36 inlet;
@@ -135,7 +135,6 @@
 #X obj 137 611 delwrite~ \$0-b9 500;
 #X obj 241 641 vd~ \$0-b9;
 #X obj 518 32 inlet;
-#X obj 518 69 * 20000;
 #X obj 601 56 inlet;
 #X text 601 16 feedback;
 #X text 516 15 decay;
@@ -143,9 +142,88 @@
 #X text 375 17 freq;
 #X floatatom 623 100 5 0 0 0 - - -;
 #X obj 609 489 lp2~;
-#X obj 433 477 lop~;
-#X obj 375 181 pack 0 100;
-#X connect 0 0 41 0;
+#X obj 469 542 expr~ tanh($v1);
+#N canvas 838 88 450 300 peaking 0;
+#X floatatom 152 -139 3 45 65 0 - #0-pole -;
+#X obj 152 -116 / 100;
+#X floatatom 206 -140 4 30 45 0 - #0-zero -;
+#X obj 206 -117 / 100;
+#X floatatom 282 -141 5 80 180 0 - #0-pole -;
+#X text 291 -179 angle;
+#X text 275 -163 (degrees);
+#X obj 336 -72 sin;
+#X obj 281 -71 cos;
+#X obj 281 -120 * 3.14159;
+#X obj 281 -96 / 180;
+#X obj 117 8 *;
+#X obj 281 -47 t b f;
+#X obj 336 -47 t b f;
+#X obj 85 36 cpole~;
+#X obj 102 67 czero~;
+#X text 142 -175 pole and zero;
+#X text 160 -160 radii (%);
+#X obj 153 9 *;
+#X obj 190 35 *;
+#X obj 225 35 *;
+#X obj 40 -130 inlet~;
+#X obj 103 100 outlet~;
+#X obj 90 -73 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 45 256;
+#X obj 178 -61 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 30 256;
+#X obj 378 -155 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 160 256;
+#X connect 0 0 1 0;
+#X connect 1 0 11 0;
+#X connect 1 0 18 0;
+#X connect 2 0 3 0;
+#X connect 3 0 19 0;
+#X connect 3 0 20 0;
+#X connect 4 0 9 0;
+#X connect 7 0 13 0;
+#X connect 8 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 10 0 7 0;
+#X connect 11 0 14 2;
+#X connect 12 0 11 0;
+#X connect 12 0 19 0;
+#X connect 12 1 11 1;
+#X connect 12 1 19 1;
+#X connect 13 0 18 0;
+#X connect 13 0 20 0;
+#X connect 13 1 20 1;
+#X connect 13 1 18 1;
+#X connect 14 0 15 0;
+#X connect 14 1 15 1;
+#X connect 15 0 22 0;
+#X connect 18 0 14 3;
+#X connect 19 0 15 2;
+#X connect 20 0 15 3;
+#X connect 21 0 14 0;
+#X connect 23 0 1 0;
+#X connect 24 0 3 0;
+#X connect 25 0 9 0;
+#X restore 372 509 pd peaking;
+#X obj 599 541 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X floatatom 618 574 5 0 0 0 - - -;
+#X obj 584 462 para_bp2~ 12000 5 -40 500;
+#X obj 518 69 * 20000;
+#X obj 579 399 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 15000 256;
+#X obj 662 380 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 25 256;
+#X obj 703 420 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 -100 256;
+#X obj 488 576 crossfade~;
+#X obj 375 181 pack 0 50;
+#X obj 509 451 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.4 256;
+#X obj 513 136 line;
+#X obj 516 104 pack 0 100;
+#X obj 433 478 lp2~ 20000 1;
+#X connect 0 0 54 0;
 #X connect 1 0 7 0;
 #X connect 1 0 10 0;
 #X connect 2 0 13 0;
@@ -158,9 +236,8 @@
 #X connect 2 0 27 0;
 #X connect 2 0 29 0;
 #X connect 2 0 31 0;
-#X connect 3 0 41 1;
 #X connect 4 0 12 0;
-#X connect 6 0 42 0;
+#X connect 6 0 50 0;
 #X connect 9 0 12 0;
 #X connect 10 0 0 1;
 #X connect 11 0 6 0;
@@ -175,20 +252,36 @@
 #X connect 27 0 28 0;
 #X connect 29 0 30 0;
 #X connect 31 0 17 0;
-#X connect 32 0 33 0;
-#X connect 33 0 3 0;
-#X connect 34 0 39 0;
-#X connect 34 0 0 1;
-#X connect 41 0 8 0;
-#X connect 42 0 2 0;
+#X connect 32 0 45 0;
+#X connect 33 0 38 0;
+#X connect 33 0 0 1;
+#X connect 40 0 49 0;
+#X connect 41 0 40 0;
+#X connect 41 0 49 1;
+#X connect 42 0 43 0;
+#X connect 42 0 49 2;
+#X connect 44 0 40 0;
+#X connect 44 0 49 1;
+#X connect 45 0 53 0;
+#X connect 46 0 44 1;
+#X connect 47 0 44 2;
+#X connect 48 0 44 3;
+#X connect 49 0 8 0;
+#X connect 50 0 2 0;
+#X connect 51 0 54 2;
+#X connect 52 0 54 1;
+#X connect 52 0 3 0;
+#X connect 53 0 52 0;
+#X connect 54 0 40 0;
+#X connect 54 0 49 1;
 #X restore 114 231 pd bbd;
 #X obj 90 51 inlet~;
 #X obj 149 558 outlet~;
 #X obj 162 124 expr 1000 / $f1;
 #X obj 609 313 hsl 128 15 1 0.01 1 0 empty empty feedback -2 -8 1 10
--262144 -1 -1 12200 1;
+-262144 -1 -1 12700 1;
 #X obj 609 281 hsl 128 15 0.01 1 1 0 empty empty decay -2 -8 1 10 -262144
--1 -1 7900 1;
+-1 -1 7400 1;
 #X obj 328 241 expr 1 - $f1;
 #X obj 201 51 inlet;
 #N canvas 0 22 450 300 (subpatch) 0;
@@ -269,7 +362,7 @@ frequency for showing spectra: the 16th bin in a 4096-point spectrum
 #X restore 272 466 pd fft;
 #X obj 332 445 bng 18 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
-#X obj 332 466 tgl 18 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+#X obj 332 466 tgl 18 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
 1;
 #X text 353 465 <-- repeatedly;
 #X text 354 445 <-- graph once;
@@ -279,19 +372,19 @@ frequency for showing spectra: the 16th bin in a 4096-point spectrum
 #X obj 119 330 lop~ 10000;
 #X floatatom 177 303 5 0 0 0 - - -;
 #X obj 609 344 hsl 128 15 0 20000 0 1 empty empty lowpass -2 -8 1 10
--262144 -1 -1 12700 1;
+-262144 -1 -1 4800 1;
 #X obj 60 159 overdrive~;
 #X obj 609 249 hsl 128 15 0.01 1 1 0 empty empty drive -2 -8 1 10 -262144
--1 -1 0 1;
+-1 -1 2400 1;
 #X obj 322 182 pack 0 50;
 #X obj 319 206 line;
 #X obj 146 437 *~ 1;
-#X obj 606 218 nbx 5 14 1 2000 1 0 empty empty delay_ms 0 -8 1 10 -262144
--1 -1 32 256;
-#X obj 669 218 nbx 5 14 0 20000 0 1 empty empty delay_hz 0 -8 1 10
--262144 -1 -1 440 256;
+#X obj 606 218 nbx 5 14 0.01 2000 1 0 empty empty delay_ms 0 -8 1 10
+-262144 -1 -1 0.2 256;
+#X obj 670 218 nbx 5 14 0 20000 0 1 empty empty delay_hz 0 -8 1 10
+-262144 -1 -1 880 256;
 #X obj 610 375 hsl 128 15 0 1 0 1 empty empty dry/wet_mix -2 -8 1 10
--262144 -1 -1 2900 1;
+-262144 -1 -1 3800 1;
 #X obj 140 514 crossfade~;
 #X text 93 27 input;
 #X text 194 28 delay hz;
@@ -303,11 +396,15 @@ frequency for showing spectra: the 16th bin in a 4096-point spectrum
 #X text 338 28 decay cv;
 #X text 405 30 feedback cv;
 #X obj 423 56 inlet;
+#X floatatom 530 369 5 0 0 0 - - -;
+#X floatatom 514 316 5 0 0 0 - - -;
 #X connect 0 0 25 0;
 #X connect 1 0 31 0;
 #X connect 3 0 0 1;
 #X connect 4 0 6 0;
+#X connect 4 0 50 0;
 #X connect 5 0 0 2;
+#X connect 5 0 51 0;
 #X connect 6 0 27 0;
 #X connect 7 0 37 0;
 #X connect 21 0 20 1;
@@ -317,7 +414,7 @@ frequency for showing spectra: the 16th bin in a 4096-point spectrum
 #X connect 27 0 26 0;
 #X connect 28 0 35 0;
 #X connect 29 0 28 1;
-#X connect 30 0 28 1;
+#X connect 30 0 29 0;
 #X connect 31 0 0 0;
 #X connect 31 0 39 0;
 #X connect 32 0 44 0;
@@ -338,10 +435,8 @@ frequency for showing spectra: the 16th bin in a 4096-point spectrum
 #X restore 728 431 pd waveguide;
 #X obj 322 31 bpm2ms;
 #X floatatom 323 7 5 0 0 0 - - -;
-#X obj 469 427 eq~;
 #X obj 318 53 / 2;
 #X obj 202 50 metro 2000;
-#X obj 505 405 clip~ -5 5;
 #X obj 922 111 clockdivider;
 #X floatatom 875 80 5 0 0 0 - - -;
 #X obj 992 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -356,10 +451,9 @@ frequency for showing spectra: the 16th bin in a 4096-point spectrum
 #X obj 461 571 vols~;
 #X obj 381 510 vu~;
 #X obj 567 510 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9200 1;
-#X floatatom 464 99 5 0 0 0 - - -;
+-1 -1 11000 1;
+#X floatatom 461 79 5 0 0 0 - - -;
 #X floatatom 601 419 5 0 0 0 - - -;
-#X obj 912 311 lpg~ 20000;
 #X floatatom 851 373 5 0 2 0 - - -;
 #X msg 338 345 1 3 5 6 8 10 12;
 #X floatatom 297 391 5 0 0 0 - - -;
@@ -371,75 +465,79 @@ frequency for showing spectra: the 16th bin in a 4096-point spectrum
 #X obj 761 107 cvscale;
 #X obj 514 152 cvscale;
 #X obj 455 2 cvscale;
-#X obj 524 374 *~ 0.5;
 #X obj 795 353 *~ 0.5;
 #X floatatom 831 398 5 0 0 0 - - -;
 #X obj 147 327 cvscale;
 #X obj 504 336 lpg~ 20000;
 #X obj 611 458 cvscale;
+#X floatatom 370 54 5 0 0 0 - - -;
+#X obj 912 311 lpg~ 20000;
+#X obj 454 438 eq~;
+#X obj 524 374 *~ 0.5;
+#X obj 505 404 clip~ -1 1;
 #X connect 0 0 5 0;
-#X connect 2 0 33 0;
+#X connect 2 0 31 0;
 #X connect 3 0 9 0;
-#X connect 3 0 41 0;
+#X connect 3 0 38 0;
 #X connect 4 0 3 1;
 #X connect 5 0 6 0;
 #X connect 5 1 3 0;
-#X connect 6 0 44 0;
-#X connect 6 0 54 2;
-#X connect 7 0 21 0;
+#X connect 6 0 41 0;
+#X connect 6 0 50 2;
+#X connect 7 0 20 0;
 #X connect 8 0 3 2;
-#X connect 9 0 31 0;
-#X connect 10 1 53 0;
-#X connect 10 1 55 0;
+#X connect 9 0 29 0;
+#X connect 10 1 49 0;
+#X connect 10 1 51 0;
 #X connect 11 0 12 1;
-#X connect 12 0 50 0;
+#X connect 12 0 55 0;
 #X connect 13 0 12 2;
 #X connect 14 0 2 0;
 #X connect 14 1 15 0;
-#X connect 15 0 33 1;
+#X connect 15 0 31 1;
 #X connect 16 0 11 0;
-#X connect 17 0 20 0;
+#X connect 17 0 19 0;
 #X connect 18 0 17 0;
-#X connect 19 0 14 0;
-#X connect 19 0 14 1;
-#X connect 20 0 21 1;
-#X connect 21 0 0 0;
-#X connect 21 0 30 0;
-#X connect 21 0 23 0;
-#X connect 22 0 19 0;
-#X connect 23 2 25 0;
-#X connect 23 2 38 3;
-#X connect 24 0 31 1;
-#X connect 26 0 38 1;
-#X connect 27 0 54 1;
-#X connect 28 0 24 0;
-#X connect 29 0 28 0;
-#X connect 30 1 48 0;
-#X connect 30 2 49 0;
-#X connect 31 0 54 0;
-#X connect 31 1 38 0;
-#X connect 33 0 1 0;
-#X connect 33 0 34 0;
-#X connect 33 0 32 0;
-#X connect 33 1 1 1;
-#X connect 33 1 32 1;
-#X connect 35 0 33 2;
-#X connect 37 0 50 1;
-#X connect 38 0 51 0;
-#X connect 39 0 51 1;
-#X connect 40 0 3 2;
-#X connect 42 0 3 2;
-#X connect 43 0 16 0;
-#X connect 44 0 45 0;
-#X connect 46 0 47 0;
-#X connect 47 0 31 3;
-#X connect 48 0 0 3;
-#X connect 49 0 36 0;
-#X connect 49 0 0 2;
-#X connect 50 0 22 0;
-#X connect 51 0 43 0;
-#X connect 51 0 50 0;
-#X connect 52 0 43 1;
-#X connect 53 0 6 2;
-#X connect 54 0 12 0;
-#X connect 54 0 16 0;
+#X connect 19 0 20 1;
+#X connect 19 0 52 0;
+#X connect 20 0 0 0;
+#X connect 20 0 28 0;
+#X connect 20 0 21 0;
+#X connect 21 2 23 0;
+#X connect 21 2 53 3;
+#X connect 22 0 29 1;
+#X connect 24 0 53 1;
+#X connect 25 0 50 1;
+#X connect 26 0 22 0;
+#X connect 27 0 26 0;
+#X connect 28 1 45 0;
+#X connect 28 2 46 0;
+#X connect 29 0 50 0;
+#X connect 29 1 53 0;
+#X connect 31 0 1 0;
+#X connect 31 0 32 0;
+#X connect 31 0 30 0;
+#X connect 31 1 1 1;
+#X connect 31 1 30 1;
+#X connect 33 0 31 2;
+#X connect 35 0 55 1;
+#X connect 36 0 47 1;
+#X connect 37 0 3 2;
+#X connect 39 0 3 2;
+#X connect 40 0 16 0;
+#X connect 41 0 42 0;
+#X connect 43 0 44 0;
+#X connect 45 0 0 3;
+#X connect 46 0 34 0;
+#X connect 46 0 0 2;
+#X connect 47 0 40 0;
+#X connect 47 0 55 0;
+#X connect 48 0 40 1;
+#X connect 49 0 6 2;
+#X connect 50 0 12 0;
+#X connect 50 0 16 0;
+#X connect 53 0 47 0;
+#X connect 54 0 14 0;
+#X connect 54 0 14 1;
+#X connect 55 0 56 0;
+#X connect 56 0 54 0;
