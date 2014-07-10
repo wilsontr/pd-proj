@@ -1,0 +1,9 @@
+#N canvas 366 22 701 653 10;
+#X obj 224 80 adc~;
+#X obj 55 208 scope~ 592 427 256 3 128 -1 1 0 0 0 0 102 255 51 135
+135 135 0;
+#X obj 166 138 *~;
+#X floatatom 238 123 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 1;
