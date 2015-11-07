@@ -164,7 +164,7 @@
 #X obj 529 140 metro 500;
 #X obj 663 693 r~ \$0-filterctl;
 #X obj 586 419 r~ \$0-decayctl;
-#N canvas 0 22 1140 797 midicontrol 0;
+#N canvas 0 22 1140 797 midicontrol 1;
 #X obj 54 34 ctlin 0 2;
 #X floatatom 56 72 5 0 0 0 - - -, f 5;
 #X obj 58 109 expr ($f1 / 127) * 1.2;
@@ -193,7 +193,7 @@
 #X obj 71 312 expr ($f1 / 127) * 110;
 #X obj 66 237 ctlin 1 2;
 #X obj 260 315 loadbang;
-#X msg 261 347 95;
+#X msg 261 347 90;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
