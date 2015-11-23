@@ -298,7 +298,7 @@
 #X obj 133 193 r ch1SendVerb;
 #X obj 253 440 /~ 0.8;
 #X obj 321 440 /~ 0.8;
-#X obj 258 376 *~ 0.5;
+#X obj 258 376 *~ 0.3;
 #X connect 0 0 14 0;
 #X connect 1 0 18 0;
 #X connect 2 0 1 2;
