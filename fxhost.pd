@@ -85,6 +85,8 @@
 #X obj 42 513 ctlin 64 2;
 #X obj 133 659 ctlout 64 2;
 #X obj 28 659 s ch1SendVerb;
+#X obj 90 7 loadbang;
+#X msg 151 8 115;
 #X connect 2 0 0 0;
 #X connect 2 1 1 0;
 #X connect 2 2 3 0;
@@ -150,7 +152,12 @@
 #X connect 72 0 77 0;
 #X connect 73 0 77 0;
 #X connect 76 0 69 0;
-#X restore 50 167 pd midicontrol;
+#X connect 79 0 80 0;
+#X connect 80 0 45 0;
+#X connect 80 0 47 0;
+#X connect 80 0 40 0;
+#X connect 80 0 37 0;
+#X restore 39 169 pd midicontrol;
 #N canvas 943 102 833 575 audiotest 0;
 #X obj 410 150 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -217,7 +224,7 @@
 #X connect 27 0 26 1;
 #X connect 29 0 24 0;
 #X connect 30 0 29 1;
-#X restore 69 115 pd audiotest;
+#X restore 43 117 pd audiotest;
 #X obj 309 35 r~ \$0-testsig;
 #N canvas 744 91 1003 656 mixing 0;
 #X obj 102 484 outlet~;
@@ -332,9 +339,14 @@
 #X connect 5 0 2 0;
 #X connect 5 1 2 1;
 #X restore 389 274 pd looper;
+#X obj 42 268 loadbang;
+#X msg 42 345 \; pd dsp 1;
+#X obj 41 306 delay 100;
 #X connect 0 0 1 0;
 #X connect 4 0 1 0;
 #X connect 5 0 8 0;
 #X connect 5 1 7 0;
 #X connect 7 0 6 1;
 #X connect 8 0 6 0;
+#X connect 12 0 14 0;
+#X connect 14 0 13 0;
