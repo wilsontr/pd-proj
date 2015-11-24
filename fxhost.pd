@@ -71,7 +71,7 @@
 #X obj 336 441 ctlout 67 2;
 #X obj 231 441 s loopSendVerb;
 #X obj 42 538 sel 127;
-#X obj 42 580 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 42 580 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 146 598 sel 1;
 #X msg 128 632 127;
@@ -107,6 +107,8 @@
 #X obj 251 518 ctlin 39 2;
 #X obj 237 664 s altReverb;
 #X obj 342 664 ctlout 39 2;
+#X msg 379 20 0;
+#X obj 323 9 loadbang;
 #X connect 2 0 0 0;
 #X connect 2 1 1 0;
 #X connect 2 2 3 0;
@@ -170,9 +172,7 @@
 #X connect 72 0 65 0;
 #X connect 75 0 76 0;
 #X connect 76 0 44 0;
-#X connect 76 0 45 0;
 #X connect 76 0 39 0;
-#X connect 76 0 37 0;
 #X connect 77 0 27 0;
 #X connect 78 0 66 0;
 #X connect 79 0 56 0;
@@ -195,9 +195,12 @@
 #X connect 93 0 99 0;
 #X connect 95 0 90 0;
 #X connect 97 0 89 0;
+#X connect 100 0 45 0;
+#X connect 100 0 37 0;
+#X connect 101 0 100 0;
 #X restore 39 169 pd midicontrol;
-#N canvas 943 102 833 575 audiotest 0;
-#X obj 410 150 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#N canvas 943 102 833 575 audiotest 1;
+#X obj 410 150 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 330 340 *~;
 #X obj 410 170 metro 500;
@@ -231,12 +234,12 @@
 #X obj 297 84 *~;
 #X floatatom 315 51 5 0 0 0 - - -;
 #X obj 460 21 loadbang;
+#X floatatom 378 318 5 0 0 0 - - -;
 #X connect 0 0 2 0;
 #X connect 1 0 10 0;
 #X connect 2 0 4 0;
 #X connect 2 0 26 0;
 #X connect 3 0 2 1;
-#X connect 4 0 1 1;
 #X connect 4 0 12 0;
 #X connect 5 0 11 0;
 #X connect 6 0 21 1;
@@ -248,7 +251,6 @@
 #X connect 12 0 15 1;
 #X connect 13 0 12 1;
 #X connect 14 0 4 1;
-#X connect 15 0 1 0;
 #X connect 16 0 12 1;
 #X connect 17 0 8 1;
 #X connect 18 0 7 1;
@@ -264,6 +266,7 @@
 #X connect 29 0 24 0;
 #X connect 30 0 29 1;
 #X connect 31 0 27 0;
+#X connect 32 0 1 1;
 #X restore 43 117 pd audiotest;
 #X obj 309 35 r~ \$0-testsig;
 #N canvas 744 91 1003 656 mixing 0;
@@ -374,7 +377,7 @@
 #X connect 6 0 4 2;
 #X connect 9 0 5 1;
 #X restore 530 272 pd delay;
-#N canvas 687 433 450 300 looper 0;
+#N canvas 687 433 450 300 looper 1;
 #X obj 119 -904 looper~;
 #X obj 118 -941 r~ dryCh1;
 #X obj 117 -788 vols~;
